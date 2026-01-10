@@ -1,3 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "tailwindcss";
+@import 'tailwindcss';
+/* styles.css */
+body {
+  @apply bg-graphite-primary;
+}
+
+@theme {
+  /* ───────────────── Dust Grey ───────────────── */
+  --color-dust-50: #f6f8f7;
+  --color-dust-100: #eef2f0;
+  --color-dust-200: #e2e8e4;
+  --color-dust-primary: #cfdbd5;
+  --color-dust-400: #b8c6bf;
+  --color-dust-500: #9fb0a8;
+  --color-dust-600: #7f8f87;
+  --color-dust-700: #5f6d67;
+  --color-dust-800: #3f4a46;
+  --color-dust-900: #222a27;
+
+  /* ───────────────── Ivory ───────────────── */
+  --color-ivory-50: #fdfefe;
+  --color-ivory-100: #fbfcf9;
+  --color-ivory-200: #f4f7ef;
+  --color-ivory-primary: #e8eddf;
+  --color-ivory-400: #d6dccb;
+  --color-ivory-500: #c1c8b3;
+  --color-ivory-600: #a3aa93;
+  --color-ivory-700: #7e8570;
+  --color-ivory-800: #585d4f;
+  --color-ivory-900: #33362e;
+
+  /* ───────────────── Tuscan Sun (brand highlight) ───────────────── */
+  --color-sun-50: #fffbeb;
+  --color-sun-100: #fef3c7;
+  --color-sun-200: #fde68a;
+  --color-sun-primary: #f5cb5c;
+  --color-sun-400: #f2b843;
+  --color-sun-500: #e6a82f;
+  --color-sun-600: #c9891d;
+  --color-sun-700: #9f6a16;
+  --color-sun-800: #6e4a12;
+  --color-sun-900: #3f2a0b;
+
+  /* ───────────────── Shadow Grey ───────────────── */
+  --color-shadow-50: #e6e6e5;
+  --color-shadow-100: #cfcfce;
+  --color-shadow-200: #a8a8a7;
+  --color-shadow-300: #6f6f6e;
+  --color-shadow-400: #3a3a39;
+  --color-shadow-primary: #242423;
+  --color-shadow-600: #1f1f1e;
+  --color-shadow-700: #191918;
+  --color-shadow-800: #131312;
+  --color-shadow-900: #0b0b0b;
+
+  /* ───────────────── Graphite ───────────────── */
+  --color-graphite-50: #ededed;
+  --color-graphite-100: #d6d7d6;
+  --color-graphite-200: #b1b3b1;
+  --color-graphite-300: #7f817f;
+  --color-graphite-400: #4b4d4b;
+  --color-graphite-primary: #333533;
+  --color-graphite-600: #2c2e2c;
+  --color-graphite-700: #242624;
+  --color-graphite-800: #1c1e1c;
+  --color-graphite-900: #121312;
+}
