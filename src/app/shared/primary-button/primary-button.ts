@@ -10,6 +10,4 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class PrimaryButton {
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() disabled = false;
-
-
 }

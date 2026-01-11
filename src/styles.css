@@ -14,6 +14,21 @@ body {
       p-6
       shadow-2xl;
   }
+  .form-card {
+    @apply max-w-md md:max-w-sm
+      rounded-2xl
+      bg-shadow-primary
+      p-6
+      shadow-2xl
+      flex flex-col;
+  }
+  .form-input {
+    @apply w-full rounded-xl px-4 py-2
+      text-base leading-normal
+      bg-graphite-primary/40 text-ivory-primary
+      ring-1 ring-graphite-100/25
+      focus:outline-none focus:ring-2 focus:ring-sun-primary/60;
+  }
 
   .card-layout {
     @apply flex flex-col items-center space-y-2 md:space-y-4;
@@ -39,6 +54,16 @@ body {
     rounded-lg
     bg-sun-primary
     px-8 py-1
+    text-sm font-semibold text-shadow-primary tracking-tight
+    transition hover:opacity-90 active:scale-95;
+  }
+
+  .btn-login {
+    @apply inline-flex
+    items-center
+    justify-center
+    rounded-lg
+    bg-sun-primary
     text-sm font-semibold text-shadow-primary tracking-tight
     transition hover:opacity-90 active:scale-95;
   }

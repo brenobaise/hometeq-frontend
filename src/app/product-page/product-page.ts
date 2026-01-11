@@ -55,7 +55,7 @@ import { PrimaryButton } from '../shared/primary-button/primary-button';
           </div>
 
           <div class="flex flex-row justify-around items-center h-full">
-            <app-primary-button type="submit"> Add To Cart </app-primary-button>
+            <app-primary-button class="   "type="submit"> Add To Cart </app-primary-button>
           </div>
         </div>
       </div>
