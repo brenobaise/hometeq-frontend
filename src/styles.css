@@ -6,6 +6,43 @@ body {
   @apply bg-graphite-primary;
 }
 
+@layer components {
+  .card {
+    @apply max-w-xs md:max-w-sm
+      rounded-2xl
+      bg-shadow-primary
+      p-6
+      shadow-2xl;
+  }
+
+  .card-layout {
+    @apply flex flex-col items-center space-y-2 md:space-y-4;
+  }
+
+  .card-title {
+    @apply text-sm sm:text-base font-bold tracking-wider text-ivory-primary;
+  }
+
+  .card-meta {
+    @apply text-sm sm:text-base font-medium tracking-wider text-dust-primary;
+  }
+
+  .card-media {
+    @apply w-24 sm:w-36 md:w-44
+    overflow-hidden rounded-xl ring-1 ring-graphite-100/30;
+  }
+
+  .btn-primary {
+    @apply inline-flex
+    items-center
+    justify-center
+    rounded-lg
+    bg-sun-primary
+    px-8 py-1
+    text-sm font-semibold text-shadow-primary tracking-tight
+    transition hover:opacity-90 active:scale-95;
+  }
+}
 @theme {
   /* ───────────────── Dust Grey ───────────────── */
   --color-dust-50: #f6f8f7;
