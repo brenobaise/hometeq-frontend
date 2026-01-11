@@ -1,0 +1,160 @@
+<div class="flex items-center justify-center px-6">
+  <section class="form-card text-white flex flex-col gap-8 w-full max-w-sm">
+    <header>
+      <h1 class="card-title text-2xl">Register</h1>
+      <p class="mt-1 card-meta tracking-wide font-normal">Create an account with us.</p>
+    </header>
+
+    <form class="font-medium flex flex-col gap-6" [formGroup]="form" (ngSubmit)="submit()">
+      <!-- Name -->
+      <div class="flex flex-col gap-1">
+        <label for="userFirstName"> Name</label>
+        <input class="form-input" id="userFirstName" type="text" formControlName="userFirstName" />
+
+        @if (showError('userFirstName')) {
+        <small class="text-sun-primary text-sm">
+          @if (control('userFirstName').errors?.['required']) {
+          <span>Field is required.</span>
+          }
+        </small>
+        }
+      </div>
+
+      <!-- Surname -->
+      <div class="flex flex-col gap-1">
+        <label for="userSecondName">Surname</label>
+        <input
+          class="form-input"
+          id="userSecondName"
+          type="text"
+          formControlName="userSecondName"
+        />
+        @if (showError('userSecondName')) {
+        <small class="text-sun-primary text-sm">
+          @if (control('userSecondName').errors?.['required']) {
+          <span>Field is required.</span>
+          }
+        </small>
+        }
+      </div>
+
+      <!-- Address -->
+      <div class="flex flex-col gap-1">
+        <label for="userAddress">Address</label>
+
+        <input
+          class="form-input"
+          id="userAddress"
+          type="text"
+          formControlName="userAddress"
+          [class.form-input-error]="showError('userAddress')"
+        />
+
+        @if (showError('userAddress')) {
+        <small class="text-sun-primary text-sm">
+          @if (control('userAddress').errors?.['required']) {
+          <span>Address is required.</span>
+          } @if (control('userAddress').errors?.['minlength']) {
+          <span>Address is too short.</span>
+          }
+        </small>
+        }
+      </div>
+
+      <!-- PostCode -->
+      <div class="flex flex-col gap-1">
+        <label for="userPostCode">Post Code</label>
+        <input class="form-input" id="userPostCode" type="text" formControlName="userPostCode" />
+        @if (showError('userPostCode')) {
+        <small class="text-sun-primary text-sm">
+          @if (control('userPostCode').errors?.['required']) {
+          <span>Post code is required.</span>
+          } @if (control('userPostCode').errors?.['pattern']) {
+          <span>Enter a valid UK post code (e.g. SW1A 1AA).</span>
+          }
+        </small>
+        }
+      </div>
+
+      <!-- Phone Number -->
+      <div class="flex flex-col gap-1">
+        <label for="userPhoneNumber">Phone Number </label>
+        <input
+          class="form-input"
+          id="userPhoneNumber"
+          type="text"
+          formControlName="userPhoneNumber"
+        />
+
+        @if (showError('userPhoneNumber')) {
+        <small class="text-sun-primary text-sm">
+          @if (control('userPhoneNumber').errors?.['required']) {
+          <span>Phone number is required.</span>
+          } @if (control('userPhoneNumber').errors?.['pattern']) {
+          <span>Enter a valid phone number.</span>
+          } @if (control('userPhoneNumber').errors?.['minlength']) {
+          <span>Phone number is too short.</span>
+          }
+        </small>
+        }
+      </div>
+
+      <!-- Email -->
+      <div class="flex flex-col gap-1">
+        <label for="email">Email</label>
+
+        <input
+          class="form-input"
+          id="email"
+          type="email"
+          autocomplete="email"
+          formControlName="email"
+          [class.form-input-error]="showError('email')"
+        />
+
+        @if (showError('email')) {
+        <small class="text-sun-primary text-sm">
+          @if (email.errors?.['required']) {
+          <span>Email is required.</span>
+          } @if (email.errors?.['email']) {
+          <span>Enter a valid email.</span>
+          }
+        </small>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="flex flex-col gap-1">
+        <label for="password">Password</label>
+
+        <input
+          class="form-input"
+          id="password"
+          type="password"
+          autocomplete="current-password"
+          formControlName="password"
+          [class.form-input-error]="showError('password')"
+        />
+
+        @if (showError('password')) {
+        <small class="text-sun-primary text-sm">
+          @if (password.errors?.['required']) {
+          <span>Password is required.</span>
+          } @if (password.errors?.['minlength']) {
+          <span>Password must be at least 8 characters.</span>
+          }
+        </small>
+        }
+      </div>
+      <button type="submit" class="btn-login w-full py-4" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Creating account…' : 'Create account' }}
+      </button>
+
+      @if (serverError) {
+      <p class="text-sun-primary text-sm">
+        {{ serverError }}
+      </p>
+      }
+    </form>
+  </section>
+</div>

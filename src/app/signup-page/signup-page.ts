@@ -1,17 +1,15 @@
-import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { PrimaryButton } from '../shared/primary-button/primary-button';
 
 @Component({
-  selector: 'app-login-page',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
-  templateUrl: './login-page.html',
-  styleUrl: './login-page.css',
+  selector: 'app-signup-page',
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './signup-page.html',
+  styleUrl: './signup-page.css',
 })
-export class LoginPage {
+export class SignupPage {
   private formBuilder = inject(FormBuilder);
   private router = inject(Router);
 
@@ -20,10 +18,22 @@ export class LoginPage {
   serverError: string | null = null;
 
   form = this.formBuilder.group({
+    userFirstName: ['', [Validators.required]],
+    userSecondName: ['', Validators.required],
+    userAddress: ['', [Validators.required]],
+    userPostCode: [
+      '',
+      [Validators.required, Validators.pattern(/^[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}$/i)],
+    ],
+
+    userPhoneNumber: [
+      '',
+      [Validators.required, Validators.pattern(/^[0-9+\s()-]{10,20}$/)],
+    ],
+
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
-
 
   get email() {
     return this.form.get('email')!;
@@ -32,6 +42,10 @@ export class LoginPage {
   get password() {
     return this.form.get('password')!;
   }
+  control(name: string) {
+    return this.form.get(name)!;
+  }
+
 
   showError(controlName: string) {
     const c = this.form.get(controlName);
@@ -47,21 +61,18 @@ export class LoginPage {
       return;
     }
 
-
     this.isSubmitting = true;
 
     try {
-      const { email, password } = this.form.getRawValue();
-      if (!email || !password) throw new Error('Missing credentials');
+      const data = this.form.getRawValue();
 
-      // TODO: Replace with your real auth call (service -> API)
-      // await this.authService.login(email, password);
-
+      // call api
       await new Promise((r) => setTimeout(r, 400));
 
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/login');
+
     } catch (e) {
-      this.serverError = 'Login failed. Please check your details and try again.';
+      this.serverError = 'Registration failed. Please try again.';
     } finally {
       this.isSubmitting = false;
     }
