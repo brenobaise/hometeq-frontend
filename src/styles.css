@@ -15,7 +15,7 @@ body {
       shadow-2xl;
   }
   .form-card {
-    @apply max-w-md md:max-w-sm
+    @apply max-w-xl md:max-w-sm
       rounded-2xl
       bg-shadow-primary
       p-6
@@ -31,7 +31,7 @@ body {
   }
 
   .card-layout {
-    @apply flex flex-col items-center space-y-2 md:space-y-4;
+    @apply flex flex-col items-center space-y-4 md:space-y-4;
   }
 
   .card-title {

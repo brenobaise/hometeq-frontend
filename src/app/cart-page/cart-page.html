@@ -1,0 +1,102 @@
+<section class="card-layout">
+  <div class="w-96 max-w-full bg-shadow-primary border border-default rounded-2xl shadow-xs">
+    <header class="p-6">
+      <h1 class="card-title text-2xl text-sun-primary">Your Cart</h1>
+      <p class="mt-1 card-meta tracking-wide font-light text-dust-primary">
+        Here's what you have added to you cart so far.
+      </p>
+    </header>
+
+    <!-- PRODUCTS -->
+    <div class="px-6 pb-2 space-y-4">
+      @for (p of products; track p.id) {
+      <div class="rounded-2xl border border-default bg-graphite-primary/90 overflow-hidden md:flex">
+        <!-- IMAGE (md and up only, left side) -->
+        <div class="hidden md:block md:w-32 md:shrink-0">
+          <img class="h-full w-full object-cover" [src]="p.prodPicNameLarge" alt="" />
+        </div>
+
+        <!-- CONTENT (right side on md+, full width on mobile) -->
+        <div class="flex-1">
+          <!-- Clickable summary -->
+          <button
+            type="button"
+            class="w-full text-left p-4"
+            (click)="toggleRow(p.id)"
+            [attr.aria-expanded]="expanded.has(p.id)"
+          >
+            <!-- Name -->
+            <div class="card-title text-dust-primary leading-snug break-words">
+              {{ p.prodName }}
+            </div>
+
+            <!-- Qty + price -->
+            <div class="mt-3 flex items-center justify-between gap-4">
+              <div class="card-meta text-dust-primary/80">
+                Qty:
+                <span class="font-semibold text-dust-primary">
+                  {{ p.prodQuantity }}
+                </span>
+              </div>
+
+              <div class="card-meta text-dust-primary/80">
+                £
+                <span class="font-semibold text-dust-primary">
+                  {{ p.prodPrice }}
+                </span>
+              </div>
+            </div>
+          </button>
+
+          <!-- Dropdown controls -->
+          @if (expanded.has(p.id)) {
+          <div class="px-4 pb-4">
+            <div class="rounded-xl p-3 flex items-center justify-between gap-8">
+              <!-- Quantity controls -->
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  class="btn-primary px-6 py-2"
+                  (click)="decrement(p.id); $event.stopPropagation()"
+                  [disabled]="p.prodQuantity <= 1"
+                >
+                  –
+                </button>
+
+                <span class="min-w-10 text-center font-semibold text-dust-primary">
+                  {{ p.prodQuantity }}
+                </span>
+
+                <button
+                  type="button"
+                  class="btn-primary px-6 py-2"
+                  (click)="increment(p.id); $event.stopPropagation()"
+                >
+                  +
+                </button>
+              </div>
+
+              <!-- Remove -->
+              <button
+                type="button"
+                class="px-4 py-2 rounded-xl bg-red-600 text-white font-semibold hover:bg-red-700 active:scale-95 transition"
+                (click)="removeFromCart(p.id); $event.stopPropagation()"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+      }
+    </div>
+
+    <footer>
+      <div class="p-6 flex justify-between items-center">
+        <button type="submit" class="btn-primary font-bold tracking-wider">Checkout</button>
+        <h2 class="card-meta text-dust-600">£ total</h2>
+      </div>
+    </footer>
+  </div>
+</section>

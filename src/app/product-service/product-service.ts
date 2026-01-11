@@ -35,16 +35,7 @@ export class ProductService {
       prodPrice: 2050.99,
       prodQuantity: 6
     },
-    {
-      id: 2,
-      prodName: 'Apple Macbook Air ',
-      prodPicNameSmall: '',
-      prodPicNameLarge: 'macbook.jpg',
-      prodDescriptionShort: 'All in Apple Desktop',
-      prodDescriptionLong: '500GB Hard disk, 32gb RAM, and much more.',
-      prodPrice: 2050.99,
-      prodQuantity: 6
-    },
+
   ]
   constructor() { }
 
