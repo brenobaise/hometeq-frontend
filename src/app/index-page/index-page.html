@@ -1,0 +1,9 @@
+<div class="mx-auto max-w-4xl px-6">
+  <div
+    class="pt-2 grid grid-cols-1 gap-10 row-span-2 sm:grid-cols-2 sm:pt-2 md:grid-cols-2 md:pt-6 lg:grid-cols-2 lg:pt-6"
+  >
+    @for (p of products; track p.id) {
+    <app-product-card [product]="p"></app-product-card>
+    }
+  </div>
+</div>

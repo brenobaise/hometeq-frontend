@@ -1,0 +1,21 @@
+<div class="card mx-auto">
+  <a [routerLink]="['/product', product.id]">
+    <div class="card-layout">
+      <!-- Media -->
+      <div class="card-media">
+        <img class="aspect-4/5 w-full object-cover" [src]="product.prodPicNameLarge" alt="" />
+      </div>
+
+      <!-- Title -->
+      <h2 class="card-title">
+        {{ product.prodName }}
+      </h2>
+
+      <!-- Price -->
+      <p class="card-meta">£{{ product.prodPrice }}</p>
+
+      <!-- CTA -->
+      <app-primary-button>Buy</app-primary-button>
+    </div>
+  </a>
+</div>
