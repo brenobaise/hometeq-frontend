@@ -10,7 +10,9 @@
     <!-- PRODUCTS -->
     <div class="px-6 pb-2 space-y-4">
       @for (p of products; track p.id) {
-      <div class="rounded-2xl border border-default bg-graphite-primary/90 overflow-hidden md:flex">
+      <div
+        class="rounded-2xl border border-default py-2 bg-graphite-primary/90 overflow-hidden md:flex"
+      >
         <!-- IMAGE (md and up only, left side) -->
         <div class="hidden md:block md:w-32 md:shrink-0">
           <img class="h-full w-full object-cover" [src]="p.prodPicNameLarge" alt="" />
@@ -26,8 +28,10 @@
             [attr.aria-expanded]="expanded.has(p.id)"
           >
             <!-- Name -->
-            <div class="card-title text-dust-primary leading-snug break-words">
-              {{ p.prodName }}
+            <div class="card-title text-dust-primary leading-snug wrap-break-word">
+              <a [routerLink]="['/product', p.id]">
+                {{ p.prodName }}
+              </a>
             </div>
 
             <!-- Qty + price -->

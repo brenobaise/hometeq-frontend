@@ -1,0 +1,27 @@
+<div class="card mx-auto mt-20 sm:mt-0">
+  <div class="flex">
+    <!-- Media -->
+    <div class="card-media h-fit justify-center self-center">
+      <img class="aspect-4/5 w-full object-cover" [src]="product?.prodPicNameLarge" alt="" />
+    </div>
+
+    <div class="flex flex-col items-start space-y-4 p-4">
+      <!-- Title -->
+      <h2 class="card-title">
+        {{ product?.prodName }}
+      </h2>
+
+      <!-- Price -->
+      <p class="card-meta">£{{ product?.prodPrice }}</p>
+      <div
+        class="text-ivory-primary/70 font-extralight italic text-sm border-b-2 border-b-slate-400/20"
+      >
+        <p class="">{{ product?.prodDescriptionLong }}</p>
+      </div>
+      <div class="text-ivory-primary text-sm">In stock: {{ product?.prodQuantity }}</div>
+
+      <!-- CTA -->
+      <app-primary-button class="self-center">Add to cart</app-primary-button>
+    </div>
+  </div>
+</div>
